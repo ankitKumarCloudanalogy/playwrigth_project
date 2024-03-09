@@ -18,7 +18,12 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
+      env:
+        ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+        SD_BASE_URL_GT: ${{ secrets.SD_BASE_URL_GT }}
+        SD_PASSWORD_GT: ${{ secrets.SD_PASSWORD_GT }}
+        SD_UASE_NAME_GT: ${{ secrets.SD_UASE_NAME_GT }}
+      run: npx playwright test github_secrets_variable_test
     - uses: actions/upload-artifact@v4
       if: always()
       with:

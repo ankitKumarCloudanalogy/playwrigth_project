@@ -19,12 +19,12 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       env:
-        ENVIRONMENT: ${{ env.ENVIRONMENT }}
+        ENVIRONMENT: ${{ vars.ENVIRONMENT }}
         SD_BASE_URL_GT: ${{ vars.SD_BASE_URL_GT }}
         SD_PASSWORD_GT: ${{ secrets.SD_PASSWORD_GT }}
         SD_UASE_NAME_GT: ${{ secrets.SD_UASE_NAME_GT }}
       run: |
-        echo "My GitHub Secret ENVIRONMENT: ${{ env.ENVIRONMENT }}"
+        echo "My GitHub Secret ENVIRONMENT: ${{ vars.ENVIRONMENT }}"
         echo "My GitHub Secret SD_BASE_URL_GT: ${{ vars.SD_BASE_URL_GT }}"
         echo "My GitHub Secret SD_PASSWORD_GT: ${{ secrets.SD_PASSWORD_GT }}"
         echo "My GitHub Secret SD_UASE_NAME_GT: ${{ secrets.SD_UASE_NAME_GT }}"

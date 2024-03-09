@@ -10,8 +10,10 @@ export class LoginPage extends BasePage {
   private readonly errorMessage: string = '[data-test="error"]';
 
   async navigate() {
-    var aa = Background.SD_BASE_URL
     await this.page.goto(Background.SD_BASE_URL);
+  }
+  async navigateUrl(url) {
+    await this.page.goto(url);
   }
 
   async setUsername(username: string) {
@@ -31,7 +33,7 @@ export class LoginPage extends BasePage {
     return errorElement ? await errorElement.innerText() : '';
   }
 
-  async login(username: string, password: string) {
+  async login(username, password) {
     await this.setUsername(username);
     await this.setPassword(password);
     await this.clickLoginButton();

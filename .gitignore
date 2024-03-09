@@ -1,5 +1,11 @@
 node_modules/
+build/
+reports/
+!reports/README.md
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+#*.env*
+*.txt
+#.env

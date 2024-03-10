@@ -8,6 +8,8 @@ reports/
 /allure-results/
 /blob-report/
 /playwright/.cache/
+/screenshots/
+/reports/
 #*.env*
 *.txt
 #.env

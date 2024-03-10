@@ -26,7 +26,7 @@ export default defineConfig({
     ['./src/my-awesome-reporter.ts', { customOption: 'Ankit',Name: 'Kumar' }],
     ['list', { printSteps: true }],
     ['json', {  outputFile: 'reports/test-results.json' }],
-    ['html', { outputFolder: path.join('playwright-report', generateTimestamp()) }],
+    ['html'], //{ outputFolder: path.join('playwright-report', generateTimestamp()) }],
     ['junit', { outputFile: 'reports/results.xml' }],
     ['experimental-allure-playwright']
     //['blob', { outputDir: 'reports', fileName: `report-${os.platform()}.zip` }]

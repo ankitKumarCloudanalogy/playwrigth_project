@@ -15,6 +15,8 @@ jobs:
         node-version: lts/*
     - name: Install dependencies
       run: npm ci
+    - name: Install ALLURE REPORT dependencies
+      run: npm i -D allure-commandline
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
@@ -28,10 +30,18 @@ jobs:
         echo "My GitHub Secret SD_BASE_URL_GT: ${{ vars.SD_BASE_URL_GT }}"
         echo "My GitHub Secret SD_PASSWORD_GT: ${{ secrets.SD_PASSWORD_GT }}"
         echo "My GitHub Secret SD_UASE_NAME_GT: ${{ secrets.SD_UASE_NAME_GT }}"
-        npx playwright test github_secrets_variable_test
+        npx playwright test loging_reporting
+        npx allure generate ./allure-results --clean
     - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-report
         path: playwright-report/
-        retention-days: 30
+        retention-days: 3
+    - name: Upload allure-report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-report
+        path: allure-report/
+        retention-days: 3

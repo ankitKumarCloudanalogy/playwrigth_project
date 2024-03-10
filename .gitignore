@@ -4,8 +4,12 @@ reports/
 !reports/README.md
 /test-results/
 /playwright-report/
+/allure-report/
+/allure-results/
 /blob-report/
 /playwright/.cache/
+/screenshots/
+/reports/
 #*.env*
 *.txt
 #.env
